@@ -1,0 +1,53 @@
+---
+title: Mixed Models in R
+author:  |
+  <span class="noem">Michael Clark</span> 
+  https://m-clark.github.io/
+  <img class='arc' src="img/signature-acronym.png" alt="University of Michigan: CSCAR">
+  <img class='cscar' src="img/ARC-acronym-signature.png" alt="University of Michigan: Advanced Research Computing"> 
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook
+always_allow_html: yes
+font-import: http://fonts.googleapis.com/css?family=Roboto|Open+Sans|Stalemate|Alex+Brush
+font-family: 'Roboto'
+documentclass: book
+bibliography: refs.bib
+biblio-style: apalike
+link-citations: yes
+description: "This is an introduction to mixed models in R. It covers a many of the most common techniques employed in such models, and relies heavily on the lme4 package.  The basics of random intercepts and slopes models, crossed vs. nested models, etc. are covered. Discussion includes extensions into generalized mixed models and realms beyond. "
+cover-image: 'img/nineteeneightyR.png'
+favicon: 'img/R.ico'
+url: 'https\://m-clark.github.io/mixed-models-with-R/'  # evidently the \: is required or you'll get text in the title/toc area
+github-repo:  'm-clark/mixed-models-with-R/'
+---
+
+
+
+
+```{r chunk_setup, include=FALSE, eval=TRUE}
+knitr::opts_chunk$set(echo = T, message=F, warning=F, comment=NA, autodep=F, 
+                      eval=T, cache.rebuild=F, cache=T, R.options=list(width=120), 
+                      fig.width=8, fig.align = 'center', dev.args=list(bg = 'transparent'), dev='svglite')
+```
+
+```{r load_common_packages, echo=FALSE, cache=FALSE, eval=TRUE}
+library(visibly); library(htmltools); library(forcats); library(lme4)
+library(broom); library(plotly); library(tidyverse); library(kableExtra); library(patchwork)
+
+kable_styling = function(..., full_width = FALSE) kableExtra::kable_styling(..., full_width = full_width)
+
+kable_df = function(..., digits =3, full_width = FALSE) 
+  kable(..., digits=digits) %>% kable_styling(full_width = full_width)
+```
+
+####
+
+```{r rimg, fig.align='center',  out.width=200, echo=FALSE, cache=FALSE}
+knitr::include_graphics('img/198R.png', dpi = NA)
+```
+
+```{r ccimg, fig.align='center', out.width=0, fig.show='hide', echo=FALSE}
+knitr::include_graphics('img/mc_logo.png', dpi = NA)
+```
