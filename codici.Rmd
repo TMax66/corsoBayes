@@ -58,6 +58,8 @@ mod4<-lmer(peso~giorno*gruppo+(1|id), data=df)
 
 fit <- aov(peso ~ giorno + gruppo + Error(id/giorno), data=df)
 
+x<-lm(peso~id+giorno+gruppo, data=df)
+
 
 ranef(mod2)$id 
 coef(mod2)$id
@@ -80,5 +82,6 @@ summarise("media"=mean(peso), "varianza"=var(peso))
 
 
 
-
+df %>% 
+ggplot(aes(x=peso))+geom_histogram(fill="lightblue", col="black")
 
