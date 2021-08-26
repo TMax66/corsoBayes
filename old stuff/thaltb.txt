@@ -1,0 +1,16 @@
+Dataset:  thaltb.dat
+
+Source: J.D. Klausner, S.Makonkawkeyoon, P.Akarasewi, et al (1996). "The
+Effect of Thalidomide on the Pathogenesis of Human Immunodeficiency
+Virus Type 1 and M. Tuberculosis Infection", Journal of Acquired
+Immune Deficiency Syndroms and Human Retrovirology. Vol. 11, pp247-257.
+
+
+Description: Effect of Thalidomide versus Placebo on weight gain in
+HIV+ subjects with and without TB.
+
+Variables/Columns:
+
+Treatment  7  /* 1=Thalidomide, 0=Placebo   */
+TB status  14   /* 1=Positive,  0=Negative  */
+Weight gain  18-21  /* Kilograms over 21-day period  */

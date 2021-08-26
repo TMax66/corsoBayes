@@ -1,0 +1,26 @@
+book_filename: 'mixed_models'
+language:
+  ui:
+    chapter_name: 'Chapter '
+output_dir: 'docs'
+delete_merged_file: true
+
+rmd_files: [
+  'index.Rmd',
+  'introduction.Rmd',
+
+  # Part I: Standard Models
+  'random_intercepts.Rmd',
+  'random_slopes.Rmd',
+
+
+  # Part II: E
+  'extensions.Rmd',
+  'issues.Rmd',
+  'further.Rmd',
+  
+  # Part III: Conclusion
+  'summary.Rmd',
+  'supplemental.Rmd',
+  'appendix.Rmd'
+]

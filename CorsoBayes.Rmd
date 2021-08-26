@@ -1,0 +1,78 @@
+---
+title: "Corso modelli lineari"
+output: html_notebook
+---
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+```
+
+# Introduzione
+
+## Inferenza statistica classica e bayesiana
+### Sampling distribution 
+
+La Sampling distribution è un **modello generativo** in quanto rappresenta un processo casuale, che, se conosciuto, può generare un nuovo set di dati.
+
+Esempio: Peso di suinetti alla nascita ha una distribuzione normale $$N \sim(\mu, \sigma)$$
+
+$\mu$ = 800 gr
+$\sigma$ = 25 gr
+
+```{r}
+ dat<-tibble(y = c(rnorm(1e4, 800, 25)))
+    dat %>% 
+      ggplot(aes(x=y)) + geom_density(alpha=.08, adjust=2.5)+
+      theme_minimal()+ labs(x = "Peso suinetti")
+```
+
+
+generiamo un data set di 100 suini da questo modello
+
+```{r}
+set.seed(1966)
+suinetti <- rnorm(100, mean = 800, sd = 25)
+suinetti
+```
+
+```{r}
+suinetti %>% as_tibble() %>% 
+  summarise(media = mean(value), 
+            sd = sd(value)) %>% 
+  kbl() %>% 
+  kable_styling()
+```
+
+
+
+
+## Simulazione
+Quante femmine in 400 nascite?
+
+La probabilità che un soggetto nasca femmina è del 48.8% , e del 51.2% che nasca maschio. 
+
+Supponiamo che in una anno ci sono stati 400 nascite in un allevamento di vacche da latte
+Quante erano le femmine?
+
+Simuliamo 400 nascite
+```{r}
+nfemm <- rbinom(1, 400, 0.488)
+print(nfemm)
+```
+
+```{r}
+nfemm <- rbinom(1000, 400, 0.488)
+print(nfemm)
+```
+
+
+```{r}
+nfemm %>% as_tibble() %>% 
+ ggplot(aes( x=value)) + geom_density(alpha=.08, adjust=2.5)+  
+      theme_minimal()+ labs(x = "Numero di femmine ( 1000 simulazioni di 400 nascite)")
+```
+ 
+ 

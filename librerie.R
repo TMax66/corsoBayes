@@ -1,5 +1,0 @@
-library(tidyverse)
-library(brms)
-library(rethinking)
-library(car)
-library(lme4)
